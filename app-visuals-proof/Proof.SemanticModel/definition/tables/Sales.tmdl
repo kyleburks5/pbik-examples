@@ -1,0 +1,292 @@
+/// Synthetic rows for the pbik smoke report (no source file).
+table Sales
+	lineageTag: 5808b7e6-5603-5b95-bf71-fb8fd3075fca
+
+	column Region
+		dataType: string
+		lineageTag: d98190fd-8288-5d2f-b764-7ae6e658e752
+		summarizeBy: none
+		sourceColumn: [Region]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 0c6c1e3b-99d4-53e3-97fa-1e755ced2c7b
+		summarizeBy: none
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bd19936-d27e-5aa1-a323-2ea37961650e
+		summarizeBy: none
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		lineageTag: f3322dce-777d-54b3-be4b-6f393e949489
+		summarizeBy: sum
+		sourceColumn: [Amount]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 6b8d1b1e-0c1e-4b7f-9a51-0d4c7d0a1001
+		summarizeBy: none
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Month
+		dataType: string
+		lineageTag: 6b8d1b1e-0c1e-4b7f-9a51-0d4c7d0a1002
+		summarizeBy: none
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy Calendar
+		lineageTag: 6b8d1b1e-0c1e-4b7f-9a51-0d4c7d0a1003
+
+		level Year
+			lineageTag: 6b8d1b1e-0c1e-4b7f-9a51-0d4c7d0a1004
+			column: Year
+
+		level Month
+			lineageTag: 6b8d1b1e-0c1e-4b7f-9a51-0d4c7d0a1005
+			column: Month
+
+	partition Sales = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Region", STRING, "Category", STRING, "Year", INTEGER, "Date", DATETIME, "Month", STRING, "Amount", DOUBLE,
+					{
+						{ "North", "Alpha", 2026, DATE ( 2026, 11, 15 ), "2026-11", 100 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 10, 15 ), "2026-10", 120 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 9, 15 ), "2026-09", 140 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 8, 15 ), "2026-08", 160 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 7, 15 ), "2026-07", 180 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 6, 15 ), "2026-06", 200 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 5, 15 ), "2026-05", 220 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 4, 15 ), "2026-04", 240 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 3, 15 ), "2026-03", 260 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 2, 15 ), "2026-02", 280 },
+						{ "North", "Alpha", 2026, DATE ( 2026, 1, 15 ), "2026-01", 300 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 12, 15 ), "2025-12", 320 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 11, 15 ), "2025-11", 340 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 10, 15 ), "2025-10", 149 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 9, 15 ), "2025-09", 169 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 8, 15 ), "2025-08", 189 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 7, 15 ), "2025-07", 209 },
+						{ "North", "Alpha", 2025, DATE ( 2025, 6, 15 ), "2025-06", 229 },
+						{ "North", "Beta", 2026, DATE ( 2026, 11, 15 ), "2026-11", 195 },
+						{ "North", "Beta", 2026, DATE ( 2026, 10, 15 ), "2026-10", 215 },
+						{ "North", "Beta", 2026, DATE ( 2026, 9, 15 ), "2026-09", 235 },
+						{ "North", "Beta", 2026, DATE ( 2026, 8, 15 ), "2026-08", 255 },
+						{ "North", "Beta", 2026, DATE ( 2026, 7, 15 ), "2026-07", 275 },
+						{ "North", "Beta", 2026, DATE ( 2026, 6, 15 ), "2026-06", 295 },
+						{ "North", "Beta", 2026, DATE ( 2026, 5, 15 ), "2026-05", 315 },
+						{ "North", "Beta", 2026, DATE ( 2026, 4, 15 ), "2026-04", 124 },
+						{ "North", "Beta", 2026, DATE ( 2026, 3, 15 ), "2026-03", 144 },
+						{ "North", "Beta", 2026, DATE ( 2026, 2, 15 ), "2026-02", 164 },
+						{ "North", "Beta", 2026, DATE ( 2026, 1, 15 ), "2026-01", 184 },
+						{ "North", "Beta", 2025, DATE ( 2025, 12, 15 ), "2025-12", 204 },
+						{ "North", "Beta", 2025, DATE ( 2025, 11, 15 ), "2025-11", 224 },
+						{ "North", "Beta", 2025, DATE ( 2025, 10, 15 ), "2025-10", 244 },
+						{ "North", "Beta", 2025, DATE ( 2025, 9, 15 ), "2025-09", 264 },
+						{ "North", "Beta", 2025, DATE ( 2025, 8, 15 ), "2025-08", 284 },
+						{ "North", "Beta", 2025, DATE ( 2025, 7, 15 ), "2025-07", 304 },
+						{ "North", "Beta", 2025, DATE ( 2025, 6, 15 ), "2025-06", 324 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 11, 15 ), "2026-11", 290 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 10, 15 ), "2026-10", 310 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 9, 15 ), "2026-09", 119 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 8, 15 ), "2026-08", 139 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 7, 15 ), "2026-07", 159 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 6, 15 ), "2026-06", 179 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 5, 15 ), "2026-05", 199 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 4, 15 ), "2026-04", 219 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 3, 15 ), "2026-03", 239 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 2, 15 ), "2026-02", 259 },
+						{ "North", "Gamma", 2026, DATE ( 2026, 1, 15 ), "2026-01", 279 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 12, 15 ), "2025-12", 299 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 11, 15 ), "2025-11", 319 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 10, 15 ), "2025-10", 339 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 9, 15 ), "2025-09", 148 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 8, 15 ), "2025-08", 168 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 7, 15 ), "2025-07", 188 },
+						{ "North", "Gamma", 2025, DATE ( 2025, 6, 15 ), "2025-06", 208 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 11, 15 ), "2026-11", 174 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 10, 15 ), "2026-10", 194 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 9, 15 ), "2026-09", 214 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 8, 15 ), "2026-08", 234 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 7, 15 ), "2026-07", 254 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 6, 15 ), "2026-06", 274 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 5, 15 ), "2026-05", 294 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 4, 15 ), "2026-04", 314 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 3, 15 ), "2026-03", 334 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 2, 15 ), "2026-02", 143 },
+						{ "South", "Alpha", 2026, DATE ( 2026, 1, 15 ), "2026-01", 163 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 12, 15 ), "2025-12", 183 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 11, 15 ), "2025-11", 203 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 10, 15 ), "2025-10", 223 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 9, 15 ), "2025-09", 243 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 8, 15 ), "2025-08", 263 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 7, 15 ), "2025-07", 283 },
+						{ "South", "Alpha", 2025, DATE ( 2025, 6, 15 ), "2025-06", 303 },
+						{ "South", "Beta", 2026, DATE ( 2026, 11, 15 ), "2026-11", 269 },
+						{ "South", "Beta", 2026, DATE ( 2026, 10, 15 ), "2026-10", 289 },
+						{ "South", "Beta", 2026, DATE ( 2026, 9, 15 ), "2026-09", 309 },
+						{ "South", "Beta", 2026, DATE ( 2026, 8, 15 ), "2026-08", 118 },
+						{ "South", "Beta", 2026, DATE ( 2026, 7, 15 ), "2026-07", 138 },
+						{ "South", "Beta", 2026, DATE ( 2026, 6, 15 ), "2026-06", 158 },
+						{ "South", "Beta", 2026, DATE ( 2026, 5, 15 ), "2026-05", 178 },
+						{ "South", "Beta", 2026, DATE ( 2026, 4, 15 ), "2026-04", 198 },
+						{ "South", "Beta", 2026, DATE ( 2026, 3, 15 ), "2026-03", 218 },
+						{ "South", "Beta", 2026, DATE ( 2026, 2, 15 ), "2026-02", 238 },
+						{ "South", "Beta", 2026, DATE ( 2026, 1, 15 ), "2026-01", 258 },
+						{ "South", "Beta", 2025, DATE ( 2025, 12, 15 ), "2025-12", 278 },
+						{ "South", "Beta", 2025, DATE ( 2025, 11, 15 ), "2025-11", 298 },
+						{ "South", "Beta", 2025, DATE ( 2025, 10, 15 ), "2025-10", 318 },
+						{ "South", "Beta", 2025, DATE ( 2025, 9, 15 ), "2025-09", 338 },
+						{ "South", "Beta", 2025, DATE ( 2025, 8, 15 ), "2025-08", 147 },
+						{ "South", "Beta", 2025, DATE ( 2025, 7, 15 ), "2025-07", 167 },
+						{ "South", "Beta", 2025, DATE ( 2025, 6, 15 ), "2025-06", 187 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 11, 15 ), "2026-11", 153 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 10, 15 ), "2026-10", 173 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 9, 15 ), "2026-09", 193 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 8, 15 ), "2026-08", 213 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 7, 15 ), "2026-07", 233 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 6, 15 ), "2026-06", 253 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 5, 15 ), "2026-05", 273 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 4, 15 ), "2026-04", 293 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 3, 15 ), "2026-03", 313 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 2, 15 ), "2026-02", 333 },
+						{ "South", "Gamma", 2026, DATE ( 2026, 1, 15 ), "2026-01", 142 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 12, 15 ), "2025-12", 162 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 11, 15 ), "2025-11", 182 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 10, 15 ), "2025-10", 202 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 9, 15 ), "2025-09", 222 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 8, 15 ), "2025-08", 242 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 7, 15 ), "2025-07", 262 },
+						{ "South", "Gamma", 2025, DATE ( 2025, 6, 15 ), "2025-06", 282 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 11, 15 ), "2026-11", 248 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 10, 15 ), "2026-10", 268 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 9, 15 ), "2026-09", 288 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 8, 15 ), "2026-08", 308 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 7, 15 ), "2026-07", 117 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 6, 15 ), "2026-06", 137 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 5, 15 ), "2026-05", 157 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 4, 15 ), "2026-04", 177 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 3, 15 ), "2026-03", 197 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 2, 15 ), "2026-02", 217 },
+						{ "East", "Alpha", 2026, DATE ( 2026, 1, 15 ), "2026-01", 237 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 12, 15 ), "2025-12", 257 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 11, 15 ), "2025-11", 277 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 10, 15 ), "2025-10", 297 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 9, 15 ), "2025-09", 317 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 8, 15 ), "2025-08", 337 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 7, 15 ), "2025-07", 357 },
+						{ "East", "Alpha", 2025, DATE ( 2025, 6, 15 ), "2025-06", 166 },
+						{ "East", "Beta", 2026, DATE ( 2026, 11, 15 ), "2026-11", 132 },
+						{ "East", "Beta", 2026, DATE ( 2026, 10, 15 ), "2026-10", 152 },
+						{ "East", "Beta", 2026, DATE ( 2026, 9, 15 ), "2026-09", 172 },
+						{ "East", "Beta", 2026, DATE ( 2026, 8, 15 ), "2026-08", 192 },
+						{ "East", "Beta", 2026, DATE ( 2026, 7, 15 ), "2026-07", 212 },
+						{ "East", "Beta", 2026, DATE ( 2026, 6, 15 ), "2026-06", 232 },
+						{ "East", "Beta", 2026, DATE ( 2026, 5, 15 ), "2026-05", 252 },
+						{ "East", "Beta", 2026, DATE ( 2026, 4, 15 ), "2026-04", 272 },
+						{ "East", "Beta", 2026, DATE ( 2026, 3, 15 ), "2026-03", 292 },
+						{ "East", "Beta", 2026, DATE ( 2026, 2, 15 ), "2026-02", 312 },
+						{ "East", "Beta", 2026, DATE ( 2026, 1, 15 ), "2026-01", 332 },
+						{ "East", "Beta", 2025, DATE ( 2025, 12, 15 ), "2025-12", 141 },
+						{ "East", "Beta", 2025, DATE ( 2025, 11, 15 ), "2025-11", 161 },
+						{ "East", "Beta", 2025, DATE ( 2025, 10, 15 ), "2025-10", 181 },
+						{ "East", "Beta", 2025, DATE ( 2025, 9, 15 ), "2025-09", 201 },
+						{ "East", "Beta", 2025, DATE ( 2025, 8, 15 ), "2025-08", 221 },
+						{ "East", "Beta", 2025, DATE ( 2025, 7, 15 ), "2025-07", 241 },
+						{ "East", "Beta", 2025, DATE ( 2025, 6, 15 ), "2025-06", 261 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 11, 15 ), "2026-11", 227 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 10, 15 ), "2026-10", 247 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 9, 15 ), "2026-09", 267 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 8, 15 ), "2026-08", 287 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 7, 15 ), "2026-07", 307 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 6, 15 ), "2026-06", 116 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 5, 15 ), "2026-05", 136 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 4, 15 ), "2026-04", 156 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 3, 15 ), "2026-03", 176 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 2, 15 ), "2026-02", 196 },
+						{ "East", "Gamma", 2026, DATE ( 2026, 1, 15 ), "2026-01", 216 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 12, 15 ), "2025-12", 236 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 11, 15 ), "2025-11", 256 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 10, 15 ), "2025-10", 276 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 9, 15 ), "2025-09", 296 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 8, 15 ), "2025-08", 316 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 7, 15 ), "2025-07", 336 },
+						{ "East", "Gamma", 2025, DATE ( 2025, 6, 15 ), "2025-06", 356 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 11, 15 ), "2026-11", 111 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 10, 15 ), "2026-10", 131 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 9, 15 ), "2026-09", 151 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 8, 15 ), "2026-08", 171 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 7, 15 ), "2026-07", 191 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 6, 15 ), "2026-06", 211 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 5, 15 ), "2026-05", 231 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 4, 15 ), "2026-04", 251 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 3, 15 ), "2026-03", 271 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 2, 15 ), "2026-02", 291 },
+						{ "West", "Alpha", 2026, DATE ( 2026, 1, 15 ), "2026-01", 311 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 12, 15 ), "2025-12", 331 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 11, 15 ), "2025-11", 140 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 10, 15 ), "2025-10", 160 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 9, 15 ), "2025-09", 180 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 8, 15 ), "2025-08", 200 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 7, 15 ), "2025-07", 220 },
+						{ "West", "Alpha", 2025, DATE ( 2025, 6, 15 ), "2025-06", 240 },
+						{ "West", "Beta", 2026, DATE ( 2026, 11, 15 ), "2026-11", 206 },
+						{ "West", "Beta", 2026, DATE ( 2026, 10, 15 ), "2026-10", 226 },
+						{ "West", "Beta", 2026, DATE ( 2026, 9, 15 ), "2026-09", 246 },
+						{ "West", "Beta", 2026, DATE ( 2026, 8, 15 ), "2026-08", 266 },
+						{ "West", "Beta", 2026, DATE ( 2026, 7, 15 ), "2026-07", 286 },
+						{ "West", "Beta", 2026, DATE ( 2026, 6, 15 ), "2026-06", 306 },
+						{ "West", "Beta", 2026, DATE ( 2026, 5, 15 ), "2026-05", 326 },
+						{ "West", "Beta", 2026, DATE ( 2026, 4, 15 ), "2026-04", 135 },
+						{ "West", "Beta", 2026, DATE ( 2026, 3, 15 ), "2026-03", 155 },
+						{ "West", "Beta", 2026, DATE ( 2026, 2, 15 ), "2026-02", 175 },
+						{ "West", "Beta", 2026, DATE ( 2026, 1, 15 ), "2026-01", 195 },
+						{ "West", "Beta", 2025, DATE ( 2025, 12, 15 ), "2025-12", 215 },
+						{ "West", "Beta", 2025, DATE ( 2025, 11, 15 ), "2025-11", 235 },
+						{ "West", "Beta", 2025, DATE ( 2025, 10, 15 ), "2025-10", 255 },
+						{ "West", "Beta", 2025, DATE ( 2025, 9, 15 ), "2025-09", 275 },
+						{ "West", "Beta", 2025, DATE ( 2025, 8, 15 ), "2025-08", 295 },
+						{ "West", "Beta", 2025, DATE ( 2025, 7, 15 ), "2025-07", 315 },
+						{ "West", "Beta", 2025, DATE ( 2025, 6, 15 ), "2025-06", 335 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 11, 15 ), "2026-11", 301 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 10, 15 ), "2026-10", 110 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 9, 15 ), "2026-09", 130 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 8, 15 ), "2026-08", 150 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 7, 15 ), "2026-07", 170 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 6, 15 ), "2026-06", 190 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 5, 15 ), "2026-05", 210 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 4, 15 ), "2026-04", 230 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 3, 15 ), "2026-03", 250 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 2, 15 ), "2026-02", 270 },
+						{ "West", "Gamma", 2026, DATE ( 2026, 1, 15 ), "2026-01", 290 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 12, 15 ), "2025-12", 310 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 11, 15 ), "2025-11", 330 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 10, 15 ), "2025-10", 139 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 9, 15 ), "2025-09", 159 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 8, 15 ), "2025-08", 179 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 7, 15 ), "2025-07", 199 },
+						{ "West", "Gamma", 2025, DATE ( 2025, 6, 15 ), "2025-06", 219 }
+					}
+				)
+

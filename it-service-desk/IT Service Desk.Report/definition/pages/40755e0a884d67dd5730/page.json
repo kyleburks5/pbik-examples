@@ -1,0 +1,2209 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "40755e0a884d67dd5730",
+  "displayName": "Service desk",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#EEF1F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V23_calls-share-title",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V24_calls-share-bar",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V25_calls-kpi",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V60_calls-quarters",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V28_calls-histogram",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V29_calls-top",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V33_chats-share-title",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V34_chats-share-bar",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V35_chats-kpi",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V61_chats-quarters",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V38_chats-histogram",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V39_chats-top",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V43_emails-share-title",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V44_emails-share-bar",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V45_emails-kpi",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V53_escalations-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V54_escalations-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V55_escalations-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V58_escalations-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V62_emails-quarters",
+      "target": "P1-V59_escalations-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V48_emails-histogram",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V49_emails-top",
+      "target": "P1-V63_escalations-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V53_escalations-share-title",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V54_escalations-share-bar",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V55_escalations-kpi",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V23_calls-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V24_calls-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V25_calls-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V28_calls-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V29_calls-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V33_chats-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V34_chats-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V35_chats-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V38_chats-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V39_chats-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V43_emails-share-title",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V44_emails-share-bar",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V45_emails-kpi",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V48_emails-histogram",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V63_escalations-quarters",
+      "target": "P1-V49_emails-top",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V58_escalations-histogram",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V60_calls-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V61_chats-quarters",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V59_escalations-top",
+      "target": "P1-V62_emails-quarters",
+      "type": "NoFilter"
+    }
+  ]
+}

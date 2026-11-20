@@ -1,0 +1,2 @@
+# export_check.py --root allow-list: <check or *> | <glob> | <why it may ship>
+smoke/sample/scratch folders | */visuals/P*-V02_sample-badge/* | the "Sample data" badge visual on each proof page (a label, not a sample folder)

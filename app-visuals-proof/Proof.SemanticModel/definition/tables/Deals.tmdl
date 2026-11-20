@@ -1,0 +1,82 @@
+/// Made-up deals for the v1.11 proof page (300 rows, a fixed formula; no source).
+table Deals
+	lineageTag: c808c9f3-d3db-4d65-99fa-bb1c9999b630
+
+	column Deal
+		dataType: string
+		lineageTag: cc74ae23-bc7c-4a1e-9002-b89f0a6ca9f6
+		summarizeBy: none
+		sourceColumn: [Deal]
+
+	column Region
+		dataType: string
+		lineageTag: 1b318463-d75a-46cb-8c14-1f37316b0237
+		summarizeBy: none
+		sourceColumn: [Region]
+
+	column Stage
+		dataType: string
+		lineageTag: 76a7f84d-ec5a-461e-9f15-1c0f84af806d
+		summarizeBy: none
+		sourceColumn: [Stage]
+
+	column Owner
+		dataType: string
+		lineageTag: 6bdb3a56-3af6-4c80-b884-d88f0387fdd2
+		summarizeBy: none
+		sourceColumn: [Owner]
+
+	column 'Close Month'
+		dataType: string
+		lineageTag: 811b0fa6-7b75-44e2-906d-5787b890063e
+		summarizeBy: none
+		sourceColumn: [Close Month]
+
+	column Value
+		dataType: int64
+		formatString: \$#,0
+		lineageTag: 1c74f72a-3ccf-4ef8-9eb7-04d0b6a65483
+		summarizeBy: sum
+		sourceColumn: [Value]
+
+	column 'Days Open'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0447f339-e482-439f-9fad-70313b5cdea8
+		summarizeBy: none
+		sourceColumn: [Days Open]
+
+	partition Deals = calculated
+		mode: import
+		source =
+				VAR _N = SELECTCOLUMNS ( GENERATESERIES ( 1, 300, 1 ), "N", [Value] )
+				VAR _H =
+				    ADDCOLUMNS (
+				        _N,
+				        "h1", DIVIDE ( MOD ( [N] * 7919 + 104729, 1000 ), 1000 ),
+				        "h2", DIVIDE ( MOD ( [N] * 6007 + 3001, 997 ), 997 ),
+				        "h3", DIVIDE ( MOD ( [N] * 4999 + 17, 991 ), 991 ),
+				        "h4", DIVIDE ( MOD ( [N] * 3571 + 211, 983 ), 983 ),
+				        "h5", DIVIDE ( MOD ( [N] * 2903 + 59, 977 ), 977 )
+				    )
+				VAR _R =
+				    ADDCOLUMNS (
+				        _H,
+				        "Deal", "D-" & FORMAT ( [N], "0000" ),
+				        "Region", SWITCH ( TRUE (), [h1] < 0.35, "North", [h1] < 0.55, "South", [h1] < 0.77, "East", "West" ),
+				        "Stage", SWITCH ( TRUE (), [h2] < 0.30, "Lead", [h2] < 0.54, "Qualified", [h2] < 0.72, "Proposal", [h2] < 0.84, "Negotiation", "Won" ),
+				        "Owner", SWITCH ( MOD ( [N], 8 ), 0, "Avery", 1, "Blake", 2, "Casey", 3, "Drew", 4, "Emery", 5, "Finley", 6, "Harper", "Jordan" ),
+				        "Close Month", FORMAT ( EDATE ( DATE ( 2025, 6, 1 ), INT ( [h3] * 18 ) ), "yyyy-MM" )
+				    )
+				RETURN
+				    SELECTCOLUMNS (
+				        _R,
+				        "Deal", [Deal],
+				        "Region", [Region],
+				        "Stage", [Stage],
+				        "Owner", [Owner],
+				        "Close Month", [Close Month],
+				        "Value", INT ( ROUND ( ( 8000 + [h4] ^ 2 * 140000 ) * IF ( [Region] = "North", 1.15, 1 ), -2 ) ),
+				        "Days Open", MAX ( 1, SWITCH ( [Stage], "Lead", 12, "Qualified", 28, "Proposal", 45, "Negotiation", 62, 70 ) + ROUND ( ( [h5] - 0.5 ) * 30, 0 ) )
+				    )
+

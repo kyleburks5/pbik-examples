@@ -1,0 +1,14 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+
+annotation PBIK_Synthetic = f12fc8bb2631b7f7
+
+annotation PBIK_SynthPlan = 192c97d189d3db6f
+
+ref table Date
+ref table Metric
+ref table _Measures
+ref table products
+ref table sales
+ref table stores

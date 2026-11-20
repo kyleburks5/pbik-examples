@@ -1,0 +1,67 @@
+table stores
+	lineageTag: 00870f5d-781b-62bc-3f1a-d6145f127687
+
+	column Store_ID
+		dataType: int64
+		lineageTag: 23144823-427f-3c24-971e-8caee591cda3
+		summarizeBy: none
+		sourceColumn: [Store_ID]
+
+	column Store_Name
+		dataType: string
+		lineageTag: 37a40ed9-5e7c-3ab4-7384-fed85a31899c
+		summarizeBy: none
+		sourceColumn: [Store_Name]
+
+	column Store_City
+		dataType: string
+		lineageTag: 42d471fd-5d1c-685f-2483-1a77ad33df46
+		summarizeBy: none
+		sourceColumn: [Store_City]
+
+	column Store_Location
+		dataType: string
+		lineageTag: 4081d77a-6bd0-a2e1-779c-3eaa528de37c
+		summarizeBy: none
+		sourceColumn: [Store_Location]
+
+	column 'Location Order' = SWITCH ( stores[Store_Location], "Downtown", 1, "Commercial", 2, "Residential", 3, "Airport", 4, 5 )
+		dataType: int64
+		lineageTag: 951e96a3-f0be-4c27-cdf7-48f27fdff176
+		summarizeBy: sum
+
+	column 'Location Type' = stores[Store_Location]
+		dataType: string
+		lineageTag: eedf7bbb-6719-0b62-77e4-f0f9d86f88b2
+		summarizeBy: none
+		sortByColumn: 'Location Order'
+
+	column Store = SUBSTITUTE ( stores[Store_Name], "Maven Toys ", "" )
+		dataType: string
+		lineageTag: a424f2f8-1601-cdc4-d02e-576043336d76
+		summarizeBy: none
+
+	column City = SUBSTITUTE ( stores[Store_City], "Cuidad", "Ciudad" )
+		dataType: string
+		lineageTag: 1015c6ef-f522-c5b2-255b-5b95ac8279ae
+		summarizeBy: none
+
+	partition stores = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Store_ID", INTEGER,
+					"Store_Name", STRING,
+					"Store_City", STRING,
+					"Store_Location", STRING,
+					{
+						{ 1, "Store_Name 1", "Store_City 1", "Store_Location 1" },
+						{ 2, "Store_Name 2", "Store_City 2", "Store_Location 2" },
+						{ 3, "Store_Name 3", "Store_City 3", "Store_Location 3" },
+						{ 4, "Store_Name 4", "Store_City 4", "Store_Location 4" },
+						{ 5, "Store_Name 5", "Store_City 5", "Store_Location 5" },
+						{ 6, "Store_Name 6", "Store_City 6", "Store_Location 6" },
+						{ 7, "Store_Name 6", "Store_City 4", "Store_Location 2" },
+						{ 8, "Store_Name 5", "Store_City 4", "Store_Location 6" }
+					}
+				)

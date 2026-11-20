@@ -1,0 +1,74 @@
+/// Made-up sites and floors for the v1.11 3D and map page (24 sites, 120 floors, a fixed formula; no source).
+table Sites
+	lineageTag: 3cbc9472-bf13-443d-a591-d24f58ffd218
+
+	column Site
+		dataType: string
+		lineageTag: 2b74d5b1-0979-4d60-baeb-7925d638ac5a
+		summarizeBy: none
+		sourceColumn: [Site]
+
+	column State
+		dataType: string
+		lineageTag: f4cbd9aa-b0eb-4ee1-9906-f4c2bbd9cb2b
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: [State]
+
+	column Region
+		dataType: string
+		lineageTag: dfa1d1a9-d234-437b-b716-cafca92f6541
+		summarizeBy: none
+		sourceColumn: [Region]
+
+	column 'Floor No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b16ad53-2ebd-47eb-9971-0cf06172a745
+		summarizeBy: none
+		sourceColumn: [Floor No]
+
+	column Floor
+		dataType: string
+		lineageTag: b707e09b-3ef5-462f-bb8f-b297f9e7ad8c
+		summarizeBy: none
+		sourceColumn: [Floor]
+		sortByColumn: 'Floor No'
+
+	column Area
+		dataType: int64
+		formatString: #,0
+		lineageTag: 948b17af-ecd8-4c44-846d-1f55fcdb20c9
+		summarizeBy: sum
+		sourceColumn: [Area]
+
+	column Status
+		dataType: int64
+		formatString: 0
+		lineageTag: 3da47afd-0bb9-403e-9dce-1ba9b5d07737
+		summarizeBy: none
+		sourceColumn: [Status]
+
+	column Occupancy
+		dataType: double
+		formatString: 0%
+		lineageTag: a0a6f33a-6ea0-4909-8f64-d75ed863f6bb
+		summarizeBy: none
+		sourceColumn: [Occupancy]
+
+	partition Sites = calculated
+		mode: import
+		source =
+				VAR _G = GENERATE ( SELECTCOLUMNS ( GENERATESERIES ( 1, 24, 1 ), "S", [Value] ), SELECTCOLUMNS ( GENERATESERIES ( 1, 2 + MOD ( [S] * 5, 7 ), 1 ), "F", [Value] ) )
+				RETURN
+				    SELECTCOLUMNS ( _G,
+				        "Site", "Site " & FORMAT ( [S], "00" ),
+				        "State", SWITCH ( [S], 1, "Washington", 2, "Oregon", 3, "Minnesota", 4, "Michigan", 5, "Wisconsin", 6, "Montana", 7, "Texas", 8, "Georgia", 9, "Florida", 10, "Tennessee", 11, "Louisiana", 12, "Alabama", 13, "New York", 14, "Pennsylvania", 15, "Virginia", 16, "Massachusetts", 17, "North Carolina", 18, "Maryland", 19, "California", 20, "Arizona", 21, "Colorado", 22, "Utah", 23, "Nevada", "New Mexico" ),
+				        "Region", SWITCH ( TRUE (), [S] <= 6, "North", [S] <= 12, "South", [S] <= 18, "East", "West" ),
+				        "Floor", "Floor " & [F],
+				        "Floor No", [F],
+				        "Area", 8000 + MOD ( [S] * 37 + [F] * 13, 9 ) * 1500,
+				        "Status", 40 + MOD ( [S] * 29 + [F] * 17, 61 ),
+				        "Occupancy", ROUND ( 0.35 + MOD ( [S] * 13 + [F] * 7, 60 ) / 100, 2 )
+				    )
+

@@ -1,0 +1,28 @@
+table Metric
+	lineageTag: b2bb7604-c825-f95a-49cb-b58b776a65bf
+
+	column 'Metric Order'
+		dataType: int64
+		lineageTag: 4b10f18e-2aa9-33c5-4002-0d3bef563407
+		summarizeBy: sum
+		sourceColumn: [Metric Order]
+
+	column Metric
+		dataType: string
+		lineageTag: ed1bfb10-c9e7-3ea6-50bf-c5e698d74bec
+		summarizeBy: none
+		sourceColumn: [Metric]
+		sortByColumn: 'Metric Order'
+
+	partition Metric = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Metric Order", INTEGER,
+					"Metric", STRING,
+					{
+						{ 0, "Revenue" },
+						{ 1, "Profit" },
+						{ 2, "Units" }
+					}
+				)

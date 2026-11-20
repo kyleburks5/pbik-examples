@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "pbip-kit",
+    "email": "pbip-kit@example.invalid"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/pbikP1V04Startera2063e.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "name": "p1V04Starter",
+    "displayName": "Starter",
+    "guid": "pbikP1V04Startera2063e",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Made with pbip-kit's app-visual template (docs/design/app-visuals.md).",
+    "supportUrl": "https://example.invalid/pbip-kit/support",
+    "gitHubUrl": ""
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "pbip-kit",
+    "email": "pbip-kit@example.invalid"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/pbikP2V06DealDots8bc17b.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "name": "p2V06DealDots",
+    "displayName": "Deal dots",
+    "guid": "pbikP2V06DealDots8bc17b",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Made with pbip-kit's app-visual template (docs/design/app-visuals.md).",
+    "supportUrl": "https://example.invalid/pbip-kit/support",
+    "gitHubUrl": ""
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

@@ -1,0 +1,216 @@
+table _Measures
+	lineageTag: f735656f-2685-b2dc-1d31-66e59d4d9a6d
+
+	column Placeholder
+		dataType: string
+		lineageTag: 2ed8bc20-41ef-23de-8300-e3aed4d2db8d
+		summarizeBy: none
+		sourceColumn: [Placeholder]
+
+	measure 'Units Sold' = SUM ( sales[Units] )
+		formatString: #,0
+		lineageTag: 01231029-35b4-6402-8dc4-cde7fc3faf97
+
+	measure Revenue = SUMX ( sales, sales[Units] * RELATED ( products[Product_Price] ) )
+		formatString: \$#,0
+		lineageTag: 9fd1f36e-d460-660c-ee42-6bdbdaa4c6c2
+
+	measure Cost = SUMX ( sales, sales[Units] * RELATED ( products[Product_Cost] ) )
+		formatString: \$#,0
+		lineageTag: 2f41c33d-9a67-7242-787a-77cf413e3772
+
+	measure Profit = [Revenue] - [Cost]
+		formatString: \$#,0
+		lineageTag: d578814b-ce8b-3c36-c0f7-0b452f75ca92
+
+	measure 'Margin %' = DIVIDE ( [Profit], [Revenue] )
+		formatString: 0.0%
+		lineageTag: 13da1eee-59a5-dc45-69b4-246ae93d8753
+
+	measure 'Revenue PY' = CALCULATE ( [Revenue], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: \$#,0
+		lineageTag: d33eb877-e0ca-8490-6639-20436698ca49
+
+	measure 'Profit PY' = CALCULATE ( [Profit], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: \$#,0
+		lineageTag: 0a6b34c9-ca91-945c-66c5-bbad4466a703
+
+	measure 'Units Sold PY' = CALCULATE ( [Units Sold], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: #,0
+		lineageTag: f5b1e500-10a3-6a30-029b-42217e649c2e
+
+	measure 'Margin % PY' = CALCULATE ( [Margin %], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: 0.0%
+		lineageTag: c5f096d7-9772-f6c8-e947-70fe73fb3873
+
+	measure 'Revenue vs PY %' = DIVIDE ( [Revenue] - [Revenue PY], [Revenue PY] )
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 719a3ce9-d7a6-ed44-9a6f-fbc1b5d3d6d0
+
+	measure 'Profit vs PY %' = DIVIDE ( [Profit] - [Profit PY], [Profit PY] )
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 6d225dae-e3c8-dd55-85d7-e6767bbe4716
+
+	measure 'Units Sold vs PY %' = DIVIDE ( [Units Sold] - [Units Sold PY], [Units Sold PY] )
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 5feaba56-87fa-a1f7-9c77-82ff47d5ab21
+
+	measure 'Margin % vs PY' = IF ( NOT ISBLANK ( [Margin % PY] ), ( [Margin %] - [Margin % PY] ) * 100 )
+		formatString: "+0.0"" pts"";-0.0"" pts"";0.0"" pts"""
+		lineageTag: 04b8fb9c-ff51-5623-ea9b-fafee6f8e693
+
+	measure 'Metric Name' = SWITCH ( SELECTEDVALUE ( Metric[Metric Order], 0 ), 1, "Profit", 2, "Units", "Revenue" )
+		formatString: #,0
+		lineageTag: bfd5c0ee-f55c-7de2-360c-b5de53a1b0f5
+
+	measure 'Selected Metric' = SWITCH ( SELECTEDVALUE ( Metric[Metric Order], 0 ), 1, [Profit], 2, [Units Sold], [Revenue] )
+		formatString: #,0
+		lineageTag: f29d5ce7-4270-0015-db85-db3c6d2fd2a3
+
+	measure 'Selected Metric PY' = CALCULATE ( [Selected Metric], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: #,0
+		lineageTag: 76d76894-54bb-6077-9967-a47760227824
+
+	measure 'Selected Metric vs PY %' = DIVIDE ( [Selected Metric] - [Selected Metric PY], ABS ( [Selected Metric PY] ) )
+		formatString: +0.0%;−0.0%;0.0%
+		lineageTag: 6e777c35-ac0d-2f67-1a5d-5d61fdc06733
+
+	measure 'Period Label' = 
+			VAR _d1 = MIN ( 'Date'[Date] )
+			VAR _d2 = MAX ( 'Date'[Date] )
+			RETURN
+			SWITCH (
+			TRUE (),
+			ISBLANK ( _d1 ), BLANK (),
+			MONTH ( _d1 ) = 1 && MONTH ( _d2 ) = 12 && YEAR ( _d1 ) = YEAR ( _d2 ), FORMAT ( _d1, "yyyy" ),
+			YEAR ( _d1 ) = YEAR ( _d2 ) && MONTH ( _d1 ) = MONTH ( _d2 ), FORMAT ( _d1, "mmm yyyy" ),
+			FORMAT ( _d1, "mmm" ) & "–" & FORMAT ( _d2, "mmm yyyy" )
+			)
+		formatString: #,0
+		lineageTag: b7596a7d-a7b3-29e3-111a-6c1323852e55
+
+	measure 'KPI Revenue delta font' = 
+			VAR _p = [Revenue PY]
+			VAR _d = [Revenue vs PY %]
+			RETURN
+			SWITCH ( TRUE (), ISBLANK ( _p ) || ROUND ( _d, 4 ) = 0, "#5B6766", _d > 0, "#256B4D", "#B42318" )
+		formatString: #,0
+		lineageTag: 95788f52-e0a4-6ed9-fd8e-6e2ad890a982
+
+	measure 'KPI Profit delta font' = 
+			VAR _p = [Profit PY]
+			VAR _d = [Profit vs PY %]
+			RETURN
+			SWITCH ( TRUE (), ISBLANK ( _p ) || ROUND ( _d, 4 ) = 0, "#5B6766", _d > 0, "#256B4D", "#B42318" )
+		formatString: #,0
+		lineageTag: 8fc0773e-18ed-7b23-0c87-c796ebb7197f
+
+	measure 'KPI Margin delta font' = 
+			VAR _p = [Margin % PY]
+			VAR _d = [Margin % vs PY]
+			RETURN
+			SWITCH ( TRUE (), ISBLANK ( _p ) || ROUND ( _d, 1 ) = 0, "#5B6766", _d > 0, "#256B4D", "#B42318" )
+		formatString: #,0
+		lineageTag: 80ce6cf0-6233-3233-c286-50cee67d6c73
+
+	measure 'KPI Units delta font' = 
+			VAR _p = [Units Sold PY]
+			VAR _d = [Units Sold vs PY %]
+			RETURN
+			SWITCH ( TRUE (), ISBLANK ( _p ) || ROUND ( _d, 4 ) = 0, "#5B6766", _d > 0, "#256B4D", "#B42318" )
+		formatString: #,0
+		lineageTag: 9c0643f0-0065-deb2-15b1-a7d3156a950c
+
+	measure 'Headline Sales' = 
+			VAR _k = [Metric Name]
+			VAR _cur = [Selected Metric]
+			VAR _py = [Selected Metric PY]
+			VAR _cats =
+			FILTER (
+			ADDCOLUMNS ( VALUES ( products[Product_Category] ), "@v", [Selected Metric] ),
+			NOT ISBLANK ( [@v] ) && [@v] <> 0
+			)
+			VAR _top = TOPN ( 1, _cats, [@v], DESC )
+			
+			VAR _a = ABS ( _cur )
+			VAR _t =
+			SWITCH (
+			TRUE (),
+			_a >= 1e8, FORMAT ( _a / 1e6, "0" ) & "M",
+			_a >= 1e7, FORMAT ( _a / 1e6, "0.0" ) & "M",
+			_a >= 1e6, FORMAT ( _a / 1e6, "0.00" ) & "M",
+			_a >= 1e5, FORMAT ( _a / 1e3, "0" ) & "K",
+			_a >= 1e4, FORMAT ( _a / 1e3, "0.0" ) & "K",
+			_a >= 1e3, FORMAT ( _a / 1e3, "0.00" ) & "K",
+			FORMAT ( _a, "0" )
+			)
+			VAR _c = IF ( _cur < 0, "−", "" ) & IF ( SELECTEDVALUE ( Metric[Metric Order], 0 ) <> 2, "$", "" ) & _t
+			VAR _vs =
+			IF (
+			NOT ISBLANK ( _py ) && _py <> 0,
+			" · " & FORMAT ( DIVIDE ( _cur - _py, ABS ( _py ) ), "+0.0%;−0.0%;0.0%" ) & " on the same months of " & ( VALUE ( MAX ( 'Date'[Year] ) ) - 1 ),
+			" · first year in the data"
+			)
+			VAR _lead =
+			IF (
+			COUNTROWS ( _cats ) > 1 && _cur > 0,
+			" · " & MAXX ( _top, products[Product_Category] ) & " lead with "
+			& FORMAT ( DIVIDE ( MAXX ( _top, [@v] ), _cur ), "0%" )
+			)
+			RETURN
+			IF ( ISBLANK ( [Units Sold] ), "No data for this selection", _k & " " & _c & " in " & [Period Label] & _vs & _lead )
+		formatString: #,0
+		lineageTag: 5dc6f1fe-f205-99d1-e81f-897aa36838ec
+
+	measure 'vs PY colour' = 
+			VAR _d = [Selected Metric vs PY %]
+			RETURN SWITCH ( TRUE (), ISBLANK ( _d ), "#5B6766", _d >= 0, "#256B4D", "#B42318" )
+		lineageTag: 29f9aa5f-facb-3e07-6314-f0c5852f3e1d
+
+	measure 'Top city colour' = VAR _v = [Selected Metric] VAR _top = MAXX ( ALLSELECTED ( 'stores'[City] ), [Selected Metric] ) RETURN IF ( NOT ISBLANK ( _v ) && _v = _top, "#F2A541", "#8C9BB2" )  // tokens brand / second (one accent)
+		lineageTag: 25470833-0d12-114b-58f0-48cdecd354cf
+
+		annotation PBIK_Planned = 1
+
+	measure 'Top channel colour' = VAR _v = [Selected Metric] VAR _top = MAXX ( ALLSELECTED ( 'stores'[Location Type], 'stores'[Location Order] ), [Selected Metric] ) RETURN IF ( NOT ISBLANK ( _v ) && _v = _top, "#F2A541", "#8C9BB2" )  // tokens brand / second
+		lineageTag: 24fc1c11-d286-3c07-3a96-7e23aee2853f
+
+		annotation PBIK_Planned = 1
+
+	measure 'Current month colour' = VAR _m = MAX ( 'Date'[Month No] ) VAR _last = MAXX ( FILTER ( ALLSELECTED ( 'Date'[Month], 'Date'[Month No] ), NOT ISBLANK ( [Units Sold] ) ), 'Date'[Month No] ) RETURN IF ( _m = _last, "#F2A541", "#8C9BB2" )  // tokens brand / second: the current month only
+		lineageTag: 938e98ab-e683-7da8-2d02-503ca223871b
+
+		annotation PBIK_Planned = 1
+
+	measure 'Growth shown' = IF ( [Units Sold PY] < 11, BLANK (), [Revenue vs PY %] )  // honest data: no growth on fewer than 11 units last year
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: d634454f-3b02-7aea-9875-a15108352437
+
+		annotation PBIK_Planned = 1
+
+	measure 'Attention title' = VAR _n = COUNTROWS ( FILTER ( VALUES ( 'products'[Product_Name] ), [Growth shown] < -0.05 ) ) RETURN IF ( _n = 0, "No products down more than 5% vs last year", _n & IF ( _n = 1, " product", " products" ) & " down more than 5% vs last year" )
+		lineageTag: 97241b52-202e-e199-25db-c7cc1c102ce8
+
+		annotation PBIK_Planned = 1
+
+	measure 'Growth colour' = IF ( [Growth shown] < 0, "#F07B72", "#4CC38A" )  // tokens bad / good
+		lineageTag: 5218c236-f819-b825-21a7-62a215f3fb2f
+
+		annotation PBIK_Planned = 1
+
+	partition _Measures = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Placeholder", STRING,
+					{
+						{ "Placeholder 1" },
+						{ "Placeholder 2" },
+						{ "Placeholder 3" },
+						{ "Placeholder 4" },
+						{ "Placeholder 5" },
+						{ "Placeholder 6" },
+						{ "Placeholder 3" },
+						{ "Placeholder 2" }
+					}
+				)

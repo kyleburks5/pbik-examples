@@ -1,0 +1,274 @@
+/// Home table for the smoke measures.
+table _Measures
+	lineageTag: 2ccda610-e12d-5b85-b857-d950aea5868c
+
+	/// Sum of the synthetic amounts.
+	measure 'Total Amount' = SUM ( Sales[Amount] )
+		formatString: #,0
+		lineageTag: 09d5a383-2f62-519b-aad2-1d8bd85f05be
+
+	/// Number of synthetic rows.
+	measure 'Row Count' = COUNTROWS ( Sales )
+		formatString: #,0
+		lineageTag: 9cff1063-0bda-5641-91ca-a60af2a2408c
+
+	/// Number of deals.
+	measure 'Deal Count' = COUNTROWS ( Deals )
+		formatString: #,0
+		displayFolder: Deals
+		lineageTag: 05e16946-ca42-49a9-b277-eea43d7b8d3a
+
+	/// Value of all deals in any stage.
+	measure 'Pipeline Value' = SUM ( Deals[Value] )
+		formatString: \$#,0
+		displayFolder: Deals
+		lineageTag: 2f1242ed-0571-4106-9fe9-a14d0a5a8ef9
+
+	/// Value of won deals.
+	measure 'Won Value' = CALCULATE ( [Pipeline Value], Deals[Stage] = "Won" )
+		formatString: \$#,0
+		displayFolder: Deals
+		lineageTag: e11c526c-bd8a-42dc-9314-9a3790637e2e
+
+	/// Share of deals that are won.
+	measure 'Win Rate' = DIVIDE ( CALCULATE ( [Deal Count], Deals[Stage] = "Won" ), [Deal Count] )
+		formatString: 0%
+		displayFolder: Deals
+		lineageTag: 03296846-033a-4872-a175-e3b5c513eff5
+
+	/// Average days a deal has been open.
+	measure 'Avg Days Open' = AVERAGE ( Deals[Days Open] )
+		formatString: #,0
+		displayFolder: Deals
+		lineageTag: 73d35a60-4182-4085-aab0-a51499f48bb2
+
+	/// Won value in the year of the latest close month in context.
+	measure 'Won This Year' =
+			VAR _Y = LEFT ( MAX ( Deals[Close Month] ), 4 )
+			RETURN CALCULATE ( [Won Value], REMOVEFILTERS ( Deals[Close Month] ), LEFT ( Deals[Close Month], 4 ) = _Y )
+		formatString: \$#,0
+		displayFolder: Deals
+		lineageTag: dc172d19-4c34-4894-aa45-ef84ea0c71c6
+
+	/// Run-rate forecast for the year: won so far / months so far x 12.
+	measure 'Won Forecast' =
+			VAR _Y = LEFT ( MAX ( Deals[Close Month] ), 4 )
+			VAR _Last = VALUE ( RIGHT ( MAX ( Deals[Close Month] ), 2 ) )
+			RETURN DIVIDE ( [Won This Year], _Last ) * 12
+		formatString: \$#,0
+		displayFolder: Deals
+		lineageTag: e1c6dcd7-ca15-4091-b68c-5e1d32adebe2
+
+	/// Made-up yearly target for won value (sample data).
+	measure 'Won Target' = 1800000
+		formatString: \$#,0
+		displayFolder: Deals
+		lineageTag: d7cfe7fd-4ad5-4d55-8d32-d28fab662921
+
+	/// Mini bars: pipeline value for the last 12 close months, the latest in the accent (docs/patterns/app-visuals/kpi-mini-bars.md).
+	measure 'Pipeline Bars SVG' =
+			VAR _Accent = "%23038D96"        // tokens colors.brand
+			VAR _Quiet = "%23B8C2D6"         // tokens colors.secondLight
+			VAR _W = 524        // W:H matches the 571 x 48 tile: the new card scales an image to the tile's width
+			VAR _H = 44
+			VAR _Cur = MAX ( Deals[Close Month] )
+			VAR _Months = TOPN ( 12, FILTER ( ALL ( Deals[Close Month] ), Deals[Close Month] <= _Cur ), Deals[Close Month], DESC )
+			VAR _T = ADDCOLUMNS ( _Months, "@v", CALCULATE ( [Pipeline Value] ) )
+			VAR _Max = MAXX ( _T, [@v] )
+			VAR _Bw = DIVIDE ( _W, COUNTROWS ( _T ) )
+			VAR _Bars =
+			    CONCATENATEX ( _T,
+			        VAR _I = RANKX ( _T, Deals[Close Month], , ASC ) - 1
+			        VAR _Hh = DIVIDE ( [@v], _Max ) * ( _H - 4 )
+			        RETURN "<rect x='" & FORMAT ( _I * _Bw + _Bw * 0.15, "0.0", "en-US" ) & "' y='" & FORMAT ( _H - _Hh, "0.0", "en-US" )
+			            & "' width='" & FORMAT ( _Bw * 0.7, "0.0", "en-US" ) & "' height='" & FORMAT ( _Hh, "0.0", "en-US" )
+			            & "' rx='1.5' fill='" & IF ( Deals[Close Month] = _Cur, _Accent, _Quiet ) & "'/>",
+			        "", Deals[Close Month], ASC )
+			RETURN
+			    IF ( NOT ISBLANK ( _Max ),
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H
+			            & "' viewBox='0 0 " & _W & " " & _H & "'>" & _Bars & "</svg>" )
+		displayFolder: Deals images
+		lineageTag: 43ad52d5-8a34-46e6-8698-e7ad829b63ad
+		dataCategory: ImageUrl
+
+	/// Mini bars: won value for the last 12 close months, the latest in the accent.
+	measure 'Won Bars SVG' =
+			VAR _Accent = "%23038D96"        // tokens colors.brand
+			VAR _Quiet = "%23B8C2D6"         // tokens colors.secondLight
+			VAR _W = 524        // W:H matches the 571 x 48 tile: the new card scales an image to the tile's width
+			VAR _H = 44
+			VAR _Cur = MAX ( Deals[Close Month] )
+			VAR _Months = TOPN ( 12, FILTER ( ALL ( Deals[Close Month] ), Deals[Close Month] <= _Cur ), Deals[Close Month], DESC )
+			VAR _T = ADDCOLUMNS ( _Months, "@v", CALCULATE ( [Won Value] ) )
+			VAR _Max = MAXX ( _T, [@v] )
+			VAR _Bw = DIVIDE ( _W, COUNTROWS ( _T ) )
+			VAR _Bars =
+			    CONCATENATEX ( _T,
+			        VAR _I = RANKX ( _T, Deals[Close Month], , ASC ) - 1
+			        VAR _Hh = DIVIDE ( [@v], _Max ) * ( _H - 4 )
+			        RETURN "<rect x='" & FORMAT ( _I * _Bw + _Bw * 0.15, "0.0", "en-US" ) & "' y='" & FORMAT ( _H - _Hh, "0.0", "en-US" )
+			            & "' width='" & FORMAT ( _Bw * 0.7, "0.0", "en-US" ) & "' height='" & FORMAT ( _Hh, "0.0", "en-US" )
+			            & "' rx='1.5' fill='" & IF ( Deals[Close Month] = _Cur, _Accent, _Quiet ) & "'/>",
+			        "", Deals[Close Month], ASC )
+			RETURN
+			    IF ( NOT ISBLANK ( _Max ),
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H
+			            & "' viewBox='0 0 " & _W & " " & _H & "'>" & _Bars & "</svg>" )
+		displayFolder: Deals images
+		lineageTag: e59cedcb-4932-400b-af91-4b5e2ce6c408
+		dataCategory: ImageUrl
+
+	/// Bullet: won this year, the run-rate forecast hatched, the target marker (docs/patterns/app-visuals/forecast-bullet.md).
+	measure 'Won Bullet SVG' =
+			VAR _Accent = "%23038D96"     // tokens colors.brand
+			VAR _Track = "%23EEF1F6"      // tokens colors.neutralTint
+			VAR _Tint = "%23E7F3F5"       // tokens colors.brandTint
+			VAR _Mark = "%231D2733"       // tokens colors.text
+			VAR _W = 285        // W:H matches the 571 x 48 tile: the new card scales an image to the tile's width
+			VAR _H = 24
+			VAR _A = [Won This Year]
+			VAR _F = MAX ( [Won Forecast], _A )
+			VAR _G = [Won Target]
+			VAR _Scale = DIVIDE ( _W - 4, MAX ( _F, _G ) * 1.05 )
+			RETURN
+			    IF ( NOT ISBLANK ( _A ),
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H & "' viewBox='0 0 " & _W & " " & _H & "'>"
+			            & "<defs><pattern id='hatch' width='6' height='6' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'>"
+			            & "<rect width='6' height='6' fill='" & _Tint & "'/><line x1='0' y1='0' x2='0' y2='6' stroke='" & _Accent & "' stroke-width='2.5'/></pattern></defs>"
+			            & "<rect x='0' y='6' width='" & _W & "' height='12' rx='6' fill='" & _Track & "'/>"
+			            & "<rect x='0' y='6' width='" & FORMAT ( _F * _Scale, "0.0", "en-US" ) & "' height='12' rx='6' fill='url(%23hatch)'/>"
+			            & "<rect x='0' y='6' width='" & FORMAT ( _A * _Scale, "0.0", "en-US" ) & "' height='12' rx='6' fill='" & _Accent & "'/>"
+			            & "<rect x='" & FORMAT ( _G * _Scale - 1.5, "0.0", "en-US" ) & "' y='1' width='3' height='22' rx='1' fill='" & _Mark & "'/>"
+			            & "</svg>" )
+		displayFolder: Deals images
+		lineageTag: 4e9a5339-aaf0-4213-8302-240585599632
+		dataCategory: ImageUrl
+
+	/// One sentence: the region holding the most pipeline value (docs/patterns/app-visuals/live-headline.md).
+	measure 'Deals Headline' =
+			VAR _One = HASONEVALUE ( Deals[Region] ) && ISFILTERED ( Deals[Region] )
+			VAR _Top = TOPN ( 1, ALLSELECTED ( Deals[Region] ), [Pipeline Value], DESC )
+			VAR _Name = IF ( _One, SELECTEDVALUE ( Deals[Region] ), MAXX ( _Top, Deals[Region] ) )
+			VAR _Part = CALCULATE ( [Pipeline Value], REMOVEFILTERS ( Deals[Region] ), Deals[Region] = _Name )
+			VAR _All = IF ( _One, CALCULATE ( [Pipeline Value], REMOVEFILTERS ( Deals[Region] ) ), CALCULATE ( [Pipeline Value], ALLSELECTED ( Deals[Region] ) ) )
+			RETURN
+			    IF ( NOT ISBLANK ( _All ),
+			        _Name & " holds " & FORMAT ( DIVIDE ( _Part, _All ), "0%" ) & " of pipeline value"
+			            & IF ( _One, "", ", the most of any region" ) & ".",
+			        "No deals in this view." )
+		displayFolder: Deals text
+		lineageTag: 5e71f086-59d2-4e5c-b2d6-c764833a2763
+
+	/// What the page shows now (docs/patterns/app-visuals/context-strip.md).
+	measure 'Deals Context' =
+			VAR _R = IF ( ISFILTERED ( Deals[Region] ), CONCATENATEX ( VALUES ( Deals[Region] ), Deals[Region], ", ", Deals[Region], ASC ), "All regions" )
+			VAR _S = IF ( ISFILTERED ( Deals[Stage] ), CONCATENATEX ( VALUES ( Deals[Stage] ), Deals[Stage], ", ", Deals[Stage], ASC ), "all stages" )
+			VAR _N = COUNTROWS ( VALUES ( Deals[Deal] ) )
+			VAR _D = IF ( ISFILTERED ( Deals[Deal] ), " · " & _N & IF ( _N = 1, " deal picked", " deals picked" ), "" )
+			RETURN "Showing " & _R & " · " & _S & _D & " · close months up to " & MAX ( Deals[Close Month] )
+		displayFolder: Deals text
+		lineageTag: 1726e41b-114a-4db4-ad80-15cf29a10796
+
+	/// Number of people.
+	measure Headcount = COUNTROWS ( People )
+		formatString: #,0
+		displayFolder: People
+		lineageTag: ded67036-e600-49ee-a2d7-12d7b6876e08
+
+	/// Average years with the company.
+	measure 'Avg Tenure' = AVERAGE ( People[Tenure] )
+		formatString: #,0.0
+		displayFolder: People
+		lineageTag: 8bb31a23-ac18-449d-ad7a-a261cbdc710c
+
+	/// One sentence: the largest team and its share of the people in view (live-headline pattern).
+	measure 'People Headline' =
+			VAR _Teams = ADDCOLUMNS ( ALLSELECTED ( People[Team] ), "@n", [Headcount] )
+			VAR _Max = MAXX ( _Teams, [@n] )
+			VAR _Top = FILTER ( _Teams, [@n] = _Max )
+			VAR _Names = CONCATENATEX ( _Top, People[Team], ", ", People[Team], ASC )
+			VAR _All = CALCULATE ( [Headcount], ALLSELECTED ( People[Team] ) )
+			VAR _Tied = COUNTROWS ( _Top ) > 1
+			VAR _Who = IF ( _All = 1, " person", " people" )
+			RETURN
+			    IF ( NOT ISBLANK ( _All ),
+			        _Names & IF ( _Tied, " are the largest teams: " & _Max & " of " & _All & _Who & " each (", " is the largest team: " & _Max & " of " & _All & _Who & " (" )
+			            & FORMAT ( DIVIDE ( _Max, _All ), "0%" ) & IF ( _Tied, " each).", ")." ),
+			        "No people in this view." )
+		displayFolder: People
+		lineageTag: 26610f3c-20c2-44c6-8a0d-e3ef6dc9a7d7
+
+	/// What the page shows now (context-strip pattern).
+	measure 'People Context' =
+			VAR _T = IF ( ISFILTERED ( People[Team] ), CONCATENATEX ( VALUES ( People[Team] ), People[Team], ", ", People[Team], ASC ), "All teams" )
+			VAR _L = IF ( ISFILTERED ( People[Location] ), CONCATENATEX ( VALUES ( People[Location] ), People[Location], ", ", People[Location], ASC ), "all locations" )
+			VAR _N = COUNTROWS ( VALUES ( People[ID] ) )
+			VAR _P = IF ( ISFILTERED ( People[ID] ), " · " & _N & IF ( _N = 1, " person picked", " people picked" ), "" )
+			RETURN "Showing " & _T & " · " & _L & _P
+		displayFolder: People
+		lineageTag: 659be0a0-1621-48c0-890c-a932f8ee70e4
+
+	/// Floor area.
+	measure 'Site Area' = SUM ( Sites[Area] )
+		formatString: #,0
+		displayFolder: Sites
+		lineageTag: 0de72b7e-2a30-4412-b3e8-963843a79ead
+
+	/// Status score weighted by floor area (0 to 100, higher is better).
+	measure 'Avg Status' = DIVIDE ( SUMX ( Sites, Sites[Area] * Sites[Status] ), SUM ( Sites[Area] ) )
+		formatString: #,0
+		displayFolder: Sites
+		lineageTag: 22d78882-d393-496f-aa30-40cfad8a616c
+
+	/// Number of sites.
+	measure 'Site Count' = DISTINCTCOUNT ( Sites[Site] )
+		formatString: #,0
+		displayFolder: Sites
+		lineageTag: 1fa6b36b-174b-4359-b03a-712b5e6a0b51
+
+	/// Number of floors.
+	measure 'Floor Count' = COUNTROWS ( Sites )
+		formatString: #,0
+		displayFolder: Sites
+		lineageTag: 756dffef-b936-449a-98cc-1543e63a7b98
+
+	/// One sentence: the site with the lowest status in view (live-headline pattern).
+	measure 'Sites Headline' =
+			-- the lowest status among the sites in the current filter context (slicers, page and cross-filters); never blank
+			VAR _Rated = FILTER ( ADDCOLUMNS ( VALUES ( Sites[Site] ), "@s", [Avg Status] ), NOT ISBLANK ( [@s] ) )
+			VAR _N = COUNTROWS ( _Rated )
+			VAR _Low = TOPN ( 1, _Rated, [@s], ASC, Sites[Site], ASC )
+			VAR _Site = MAXX ( _Low, Sites[Site] )
+			VAR _S = MAXX ( _Low, [@s] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        _N = 0, "No sites with a status in this view.",
+			        _N = 1, _Site & " is the only site in this view (status " & FORMAT ( _S, "0" ) & ").",
+			        _Site & " has the lowest status (" & FORMAT ( _S, "0" ) & ") of " & _N & " sites."
+			    )
+		displayFolder: Sites
+		lineageTag: 40401914-92fe-4f52-85ae-6fa9f69f4d37
+
+	/// What the page shows now (context-strip pattern).
+	measure 'Sites Context' =
+			VAR _R = IF ( ISFILTERED ( Sites[Region] ), CONCATENATEX ( VALUES ( Sites[Region] ), Sites[Region], ", ", Sites[Region], ASC ), "All regions" )
+			VAR _S = IF ( ISFILTERED ( Sites[State] ), CONCATENATEX ( VALUES ( Sites[State] ), Sites[State], ", ", Sites[State], ASC ), "all states" )
+			VAR _N = COUNTROWS ( VALUES ( Sites[Site] ) )
+			VAR _P = IF ( ISFILTERED ( Sites[Site] ), " · " & _N & IF ( _N = 1, " site picked", " sites picked" ), "" )
+			RETURN "Showing " & _R & " · " & _S & _P
+		displayFolder: Sites
+		lineageTag: 69d7e3a5-05b4-4c3f-b056-e67b55dd001b
+
+	column Placeholder
+		lineageTag: 0339cb85-dbcf-4c64-bb37-346ac1b7e8a7
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW ( "Placeholder", BLANK () )
+
+	annotation PBI_ResultType = Table
+

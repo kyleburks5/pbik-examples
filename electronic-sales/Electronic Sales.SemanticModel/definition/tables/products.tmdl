@@ -1,0 +1,53 @@
+table products
+	lineageTag: fbdc4f23-f931-25bb-eeae-800c4fc78f89
+
+	column Product_ID
+		dataType: int64
+		lineageTag: 3e8afc4b-ba44-005e-58dc-d060ff2ced12
+		summarizeBy: none
+		sourceColumn: [Product_ID]
+
+	column Product_Name
+		dataType: string
+		lineageTag: d7b1c06c-1ec2-7d48-4adb-afd0f0137a3b
+		summarizeBy: none
+		sourceColumn: [Product_Name]
+
+	column Product_Category
+		dataType: string
+		lineageTag: 224157b3-9716-fe43-e6de-d9ab5313d0ae
+		summarizeBy: none
+		sourceColumn: [Product_Category]
+
+	column Product_Cost
+		dataType: decimal
+		lineageTag: 012c96ac-50ad-2830-601b-58a6ac9d5298
+		summarizeBy: sum
+		sourceColumn: [Product_Cost]
+
+	column Product_Price
+		dataType: decimal
+		lineageTag: 43b4ad8b-cfe4-90f6-03d9-71303c80f249
+		summarizeBy: sum
+		sourceColumn: [Product_Price]
+
+	partition products = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Product_ID", INTEGER,
+					"Product_Name", STRING,
+					"Product_Category", STRING,
+					"Product_Cost", CURRENCY,
+					"Product_Price", CURRENCY,
+					{
+						{ 1, "Product_Name 1", "Product_Category 1", 57.53, 887.53 },
+						{ 2, "Product_Name 2", "Product_Category 2", 858.16, 464.23 },
+						{ 3, "Product_Name 3", "Product_Category 3", 124.12, 798.74 },
+						{ 4, "Product_Name 4", "Product_Category 4", 226.7, 759.43 },
+						{ 5, "Product_Name 5", "Product_Category 5", 882.82, 695.82 },
+						{ 6, "Product_Name 6", "Product_Category 6", 622.59, 716.95 },
+						{ 7, "Product_Name 2", "Product_Category 3", 695.27, 886.54 },
+						{ 8, "Product_Name 5", "Product_Category 4", 850.5, 782.63 }
+					}
+				)

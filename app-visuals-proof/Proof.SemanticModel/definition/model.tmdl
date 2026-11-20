@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+ref table Sales
+ref table _Measures
+ref table Deals
+ref table People
+ref table Sites
+
+ref cultureInfo en-US
+

@@ -1,0 +1,236 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "P2-V14_deal-dots",
+  "position": {
+    "x": 32,
+    "y": 344,
+    "z": 1014,
+    "height": 456,
+    "width": 1073,
+    "tabOrder": 1400
+  },
+  "visual": {
+    "visualType": "pbikP2V06DealDots8bc17b",
+    "query": {
+      "queryState": {
+        "Item": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Deal"
+                }
+              },
+              "queryRef": "Deals.Deal",
+              "nativeQueryRef": "Deal"
+            }
+          ]
+        },
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "Deals.Region",
+              "nativeQueryRef": "Region"
+            }
+          ]
+        },
+        "Stage": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "Deals.Stage",
+              "nativeQueryRef": "Stage"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days Open"
+                }
+              },
+              "queryRef": "_Measures.Avg Days Open",
+              "nativeQueryRef": "Avg Days Open"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pipeline Value"
+                }
+              },
+              "queryRef": "_Measures.Pipeline Value",
+              "nativeQueryRef": "Pipeline Value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Pipeline Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "view": [
+        {
+          "properties": {
+            "customOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Lead, Qualified, Proposal, Negotiation, Won'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "state": [
+        {
+          "properties": {
+            "view": {
+              "expr": {
+                "Literal": {
+                  "Value": "'grid'"
+                }
+              }
+            },
+            "drill": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "camera": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Every deal as a dot'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D2733'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'One dot per deal by region and stage; pills switch to columns, a scatter of value against days open, and clusters'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,68 @@
+/// Made-up people for the v1.11 org-chart page (60 rows, invented colour-and-animal names, a fixed formula; no source).
+table People
+	lineageTag: 110b0370-ff1a-4e6f-942a-9635a0dd8d13
+
+	column ID
+		dataType: string
+		lineageTag: 96f71608-da48-4863-8ea2-c498ad39e9fb
+		summarizeBy: none
+		sourceColumn: [ID]
+
+	column Name
+		dataType: string
+		lineageTag: c4fdda75-5c84-44df-820a-2a0e6cfc1222
+		summarizeBy: none
+		sourceColumn: [Name]
+
+	column Manager
+		dataType: string
+		lineageTag: f528215b-c52d-4c7a-9ae7-82175158d0a5
+		summarizeBy: none
+		sourceColumn: [Manager]
+
+	column Team
+		dataType: string
+		lineageTag: c5469a9d-6cd3-4784-8539-101d2b70bf69
+		summarizeBy: none
+		sourceColumn: [Team]
+
+	column Location
+		dataType: string
+		lineageTag: 0a2681e1-2b8b-4ba7-87f6-8e1f865c3831
+		summarizeBy: none
+		sourceColumn: [Location]
+
+	column Level
+		dataType: string
+		lineageTag: 7271d6f8-0936-4ad0-9fc2-99b594046e83
+		summarizeBy: none
+		sourceColumn: [Level]
+
+	column Tenure
+		dataType: int64
+		formatString: 0
+		lineageTag: 5061b756-5ce5-4698-82e0-f1c1358c984b
+		summarizeBy: none
+		sourceColumn: [Tenure]
+
+	partition People = calculated
+		mode: import
+		source =
+				VAR _N = SELECTCOLUMNS ( GENERATESERIES ( 1, 60, 1 ), "N", [Value] )
+				VAR _T = ADDCOLUMNS ( _N,
+				    "TeamIdx", SWITCH ( TRUE (), [N] = 1, -1, [N] <= 5, [N] - 2, [N] <= 17, MOD ( [N] - 6, 4 ), MOD ( [N] - 18, 4 ) ),
+				    "Lvl", SWITCH ( TRUE (), [N] = 1, 1, [N] <= 5, 2, [N] <= 17, 3, 4 ) )
+				RETURN
+				    SELECTCOLUMNS ( _T,
+				        "ID", "P" & FORMAT ( [N], "000" ),
+				        "Name",
+				            SWITCH ( MOD ( [N] * 7, 20 ), 0, "Teal", 1, "Amber", 2, "Coral", 3, "Indigo", 4, "Sage", 5, "Slate", 6, "Ivory", 7, "Crimson", 8, "Olive", 9, "Cobalt", 10, "Russet", 11, "Pearl", 12, "Jade", 13, "Ochre", 14, "Plum", 15, "Saffron", 16, "Moss", 17, "Cedar", 18, "Frost", "Umber" )
+				            & " " &
+				            SWITCH ( MOD ( [N] * 11, 20 ), 0, "Fox", 1, "Owl", 2, "Heron", 3, "Lynx", 4, "Otter", 5, "Wren", 6, "Bison", 7, "Falcon", 8, "Hare", 9, "Marten", 10, "Raven", 11, "Stoat", 12, "Crane", 13, "Badger", 14, "Finch", 15, "Ibex", 16, "Kestrel", 17, "Puffin", 18, "Seal", "Viper" ),
+				        "Manager", SWITCH ( TRUE (), [N] = 1, BLANK (), [N] <= 5, "P001", [N] <= 17, "P" & FORMAT ( 2 + MOD ( [N] - 6, 4 ), "000" ), "P" & FORMAT ( 6 + MOD ( [N] - 18, 12 ), "000" ) ),
+				        "Team", SWITCH ( [TeamIdx], -1, "Leadership", 0, "Product", 1, "Engineering", 2, "Sales", "Operations" ),
+				        "Location", SWITCH ( MOD ( [N] * 7, 4 ), 0, "Remote", 1, "North office", 2, "South office", "East office" ),
+				        "Level", SWITCH ( [Lvl], 1, "Executive", 2, "Director", 3, "Manager", "Individual contributor" ),
+				        "Tenure", 1 + MOD ( [N] * 37, 12 )
+				    )
+

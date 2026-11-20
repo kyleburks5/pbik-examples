@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "pbip-kit",
+    "email": "pbip-kit@example.invalid"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/pbikStateMap5b0504.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "name": "stateMap",
+    "displayName": "Sites map",
+    "guid": "pbikStateMap5b0504",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "US states map: shaded states, dots per site, and states that morph into sized bubbles; click to zoom and filter.",
+    "supportUrl": "https://example.invalid/pbip-kit/support",
+    "gitHubUrl": ""
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

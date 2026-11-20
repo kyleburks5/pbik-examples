@@ -1,0 +1,11 @@
+relationship d7ba31f0-ae30-92eb-e3f8-d62834935aec
+	fromColumn: sales.Product_ID
+	toColumn: products.Product_ID
+
+relationship c6f26c07-db4a-7fba-beb9-4e084155d2dd
+	fromColumn: sales.Store_ID
+	toColumn: stores.Store_ID
+
+relationship aa1c10c4-533d-a5f6-060f-78035bca1344
+	fromColumn: sales.Date
+	toColumn: Date.Date

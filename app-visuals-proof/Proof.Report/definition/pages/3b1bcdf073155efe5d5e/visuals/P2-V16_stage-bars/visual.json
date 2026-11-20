@@ -1,0 +1,240 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "P2-V16_stage-bars",
+  "position": {
+    "x": 32,
+    "y": 824,
+    "z": 1016,
+    "height": 224,
+    "width": 759,
+    "tabOrder": 1600
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "Deals.Stage",
+              "nativeQueryRef": "Stage"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pipeline Value"
+                }
+              },
+              "queryRef": "_Measures.Pipeline Value",
+              "nativeQueryRef": "Pipeline Value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Pipeline Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\r\n  \"data\": {\r\n    \"name\": \"dataset\"\r\n  },\r\n  \"encoding\": {\r\n    \"y\": {\r\n      \"field\": \"Stage\",\r\n      \"type\": \"nominal\",\r\n      \"title\": null,\r\n      \"sort\": [\r\n        \"Lead\",\r\n        \"Qualified\",\r\n        \"Proposal\",\r\n        \"Negotiation\",\r\n        \"Won\"\r\n      ],\r\n      \"axis\": {\r\n        \"labelPadding\": 6\r\n      }\r\n    },\r\n    \"x\": {\r\n      \"field\": \"Pipeline Value\",\r\n      \"type\": \"quantitative\",\r\n      \"title\": null,\r\n      \"axis\": null\r\n    }\r\n  },\r\n  \"layer\": [\r\n    {\r\n      \"mark\": {\r\n        \"type\": \"bar\",\r\n        \"cornerRadiusEnd\": 4,\r\n        \"tooltip\": true,\r\n        \"height\": {\r\n          \"band\": 0.7\r\n        }\r\n      },\r\n      \"encoding\": {\r\n        \"color\": {\r\n          \"condition\": {\r\n            \"test\": \"datum.Stage == ''Won''\",\r\n            \"value\": {\r\n              \"expr\": \"pbiColor(0)\"\r\n            }\r\n          },\r\n          \"value\": {\r\n            \"expr\": \"pbiColor(0, 0.45)\"\r\n          }\r\n        },\r\n        \"opacity\": {\r\n          \"condition\": {\r\n            \"test\": \"datum.__selected__ == ''off''\",\r\n            \"value\": 0.3\r\n          },\r\n          \"value\": 1\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"mark\": {\r\n        \"type\": \"text\",\r\n        \"align\": \"left\",\r\n        \"dx\": 6,\r\n        \"color\": {\r\n          \"expr\": \"pbiColor(0, -0.5)\"\r\n        }\r\n      },\r\n      \"encoding\": {\r\n        \"text\": {\r\n          \"field\": \"Pipeline Value\",\r\n          \"type\": \"quantitative\",\r\n          \"format\": \"$,.2s\"\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}'"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'simple'"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.3'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stateManagement": [
+        {
+          "properties": {
+            "supportFieldConfiguration": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"Stage\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":false,\"formatted\":false,\"names\":false},\"Pipeline Value\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":true,\"formatted\":true,\"names\":false}}'"
+                }
+              }
+            },
+            "denebMetaVersion": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2'"
+                }
+              }
+            },
+            "consolidateFieldParameters": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "224D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "759D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2.0.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pipeline by stage'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D2733'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bars of pipeline value for each stage, Won highlighted'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

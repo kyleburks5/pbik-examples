@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU09",
+      "reportVersionAtImport": {
+        "visual": "2.13.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "pbip-polish.json",
+      "reportVersionAtImport": {
+        "visual": "2.13.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "deneb7E15AEF80B9E4D4F8E12924291ECE89A"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU09",
+          "path": "BaseThemes/Fluent2-CY26SU09.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "pbip-polish.json",
+          "path": "pbip-polish.json",
+          "type": "CustomTheme"
+        }
+      ]
+    },
+    {
+      "name": "pbikP1V04Startera2063e",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "pbikP1V04Startera2063e.pbiviz.json",
+          "path": "pbikP1V04Startera2063e.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "pbikP2V06DealDots8bc17b",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "pbikP2V06DealDots8bc17b.pbiviz.json",
+          "path": "pbikP2V06DealDots8bc17b.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "pbikP2V07AppPanel8c4170",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "pbikP2V07AppPanel8c4170.pbiviz.json",
+          "path": "pbikP2V07AppPanel8c4170.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "pbikOrgChart8e8f50",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "pbikOrgChart8e8f50.pbiviz.json",
+          "path": "pbikOrgChart8e8f50.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "pbikSiteBlocks4d2aa2",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "pbikSiteBlocks4d2aa2.pbiviz.json",
+          "path": "pbikSiteBlocks4d2aa2.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "pbikStateMap5b0504",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "pbikStateMap5b0504.pbiviz.json",
+          "path": "pbikStateMap5b0504.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

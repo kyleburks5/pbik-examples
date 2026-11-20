@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "474a2d6049e83161f209",
+  "displayName": "Shot chart",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#0B1220'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "P1-V08_shot-map",
+      "target": "P1-V03_pick-season",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V08_shot-map",
+      "target": "P1-V04_pick-team",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V08_shot-map",
+      "target": "P1-V05_pick-game",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V08_shot-map",
+      "target": "P1-V06_pick-player",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V08_shot-map",
+      "target": "P1-V14_pick-quarter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "P1-V08_shot-map",
+      "target": "P1-V15_pick-type",
+      "type": "NoFilter"
+    }
+  ]
+}

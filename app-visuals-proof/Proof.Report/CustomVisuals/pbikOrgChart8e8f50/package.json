@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "pbip-kit",
+    "email": "pbip-kit@example.invalid"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/pbikOrgChart8e8f50.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "name": "orgChart",
+    "displayName": "Org chart",
+    "guid": "pbikOrgChart8e8f50",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Org chart that morphs into clusters by team or location: expand and collapse, find a person, zoom, click to filter.",
+    "supportUrl": "https://example.invalid/pbip-kit/support",
+    "gitHubUrl": ""
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

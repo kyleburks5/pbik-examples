@@ -1,0 +1,13 @@
+# Power BI project (PBIP): local settings and the model cache never ship
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.pbix
+*.abf
+# tools and builds
+node_modules/
+dist/
+.tmp/
+*.pbiviz
+Thumbs.db
+.DS_Store
+.pbik/

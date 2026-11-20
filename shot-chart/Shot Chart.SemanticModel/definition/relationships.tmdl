@@ -1,0 +1,8 @@
+relationship b3c2bd9f-297e-5511-1051-700624b9b44d
+	fromColumn: Shots.'Game Date'
+	toColumn: Date.Date
+
+relationship 348bd23d-5e6a-bdbc-df22-f4765f400116
+	fromColumn: Shots.Zone
+	toColumn: Zones.Zone
+

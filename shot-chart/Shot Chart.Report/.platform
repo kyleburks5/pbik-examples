@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Shot Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "50cc3e97-b31e-550d-a393-3035e731b67c"
+  }
+}

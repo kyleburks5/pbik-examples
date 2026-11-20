@@ -1,0 +1,203 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "P2-V15_region-panel",
+  "position": {
+    "x": 1129,
+    "y": 344,
+    "z": 1015,
+    "height": 456,
+    "width": 759,
+    "tabOrder": 1500
+  },
+  "visual": {
+    "visualType": "pbikP2V07AppPanel8c4170",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "Deals.Region",
+              "nativeQueryRef": "Region"
+            }
+          ]
+        },
+        "Stage": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "Deals.Stage",
+              "nativeQueryRef": "Stage"
+            }
+          ]
+        },
+        "Item": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Deals"
+                    }
+                  },
+                  "Property": "Deal"
+                }
+              },
+              "queryRef": "Deals.Deal",
+              "nativeQueryRef": "Deal"
+            }
+          ]
+        },
+        "Value": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Pipeline Value"
+                }
+              },
+              "queryRef": "_Measures.Pipeline Value",
+              "nativeQueryRef": "Pipeline Value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Pipeline Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "panel": [
+        {
+          "properties": {
+            "customOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Lead, Qualified, Proposal, Negotiation, Won'"
+                }
+              }
+            },
+            "what": {
+              "expr": {
+                "Literal": {
+                  "Value": "'pipeline value'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Regions'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D2733'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'A card per region with its pipeline value and stage chart; open one for its stages and top deals'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

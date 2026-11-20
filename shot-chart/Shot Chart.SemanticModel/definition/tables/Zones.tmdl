@@ -1,0 +1,42 @@
+table Zones
+	lineageTag: 182e2eb7-2d8d-50f0-9d8e-f665942c0cc3
+
+	column Zone
+		dataType: string
+		lineageTag: 9c1f8cfe-354e-a5a0-de14-974395b5f959
+		summarizeBy: none
+		sourceColumn: [Zone]
+		sortByColumn: 'Zone Order'
+
+	column 'Zone Order'
+		dataType: int64
+		lineageTag: a413f186-cf97-0629-2395-30702ca92cc0
+		summarizeBy: sum
+		sourceColumn: [Zone Order]
+
+	column 'Zone Label' = SWITCH ( 'Zones'[Zone], "rim", "Rim", "paint", "Paint", "mid-left", "Mid L", "mid-center", "Mid C", "mid-right", "Mid R", "corner3-left", "Corner 3 L", "wing3-left", "Wing 3 L", "three-top", "Top 3", "wing3-right", "Wing 3 R", "corner3-right", "Corner 3 R" )
+		dataType: string
+		lineageTag: 742c3c8b-e243-44e9-5aca-cf7621a4faec
+		summarizeBy: none
+		sortByColumn: 'Zone Order'
+
+	partition Zones = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Zone", STRING,
+					"Zone Order", INTEGER,
+					{
+						{ "rim", 1 },
+						{ "paint", 2 },
+						{ "mid-left", 3 },
+						{ "mid-center", 4 },
+						{ "mid-right", 5 },
+						{ "corner3-left", 6 },
+						{ "wing3-left", 7 },
+						{ "three-top", 8 },
+						{ "wing3-right", 9 },
+						{ "corner3-right", 10 }
+					}
+				)
+
